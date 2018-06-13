@@ -1,0 +1,41 @@
+<!--
+  Generated template for the TrabalhoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Crud</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="crudForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
+
+    <ion-item>
+      <ion-label floating>Nome Produto</ion-label>
+      <ion-input type="text" formControlName="nome_produto"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>Valor:</ion-label>
+      <ion-input type="text" formControlName="valor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descrição:</ion-label>
+      <ion-input type="text" formControlName="descricao"></ion-input>
+    </ion-item> 
+
+    <br>
+
+    <button ion-button full type="submit" [disabled]="crudForm.invalid"> Salvar </button>
+
+    <button ion-button full type="button" color="danger" *ngIf="crud.$key" (click)="delete()"> Excluir </button>
+
+  </form>
+</ion-content>

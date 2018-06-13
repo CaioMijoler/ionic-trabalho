@@ -1,0 +1,20 @@
+<ion-header>
+
+  <custom-logged-header [title]="view | capitalize:true"> </custom-logged-header>
+
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <button ion-button (click)="navCtrl.push(crudPage)" full> Adicionar </button>
+  <div [ngSwitch]="view">
+    <ion-list *ngSwitchCase="'crud'" no-lines>
+      <button ion-item *ngFor="let crud of cruds | async" (click)="onCrudOpen(crud)">
+        <p>Nome Produto: {{ crud.nome_produto }} </p>
+        <p> Valor: {{ crud.valor }} </p>
+        <p>Descrição: {{ crud.descricao }} </p>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>
